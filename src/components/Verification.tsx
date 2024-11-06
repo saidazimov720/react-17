@@ -28,3 +28,5 @@ const VerificationPage: React.FC<VerificationProps> = ({data, edit}) =>{
         </Box>
     )
 }
+
+export default VerificationPage;
