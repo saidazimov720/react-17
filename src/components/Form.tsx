@@ -40,8 +40,8 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                     <Grid item xs={12} sm={4}>
                         <TextField label="Last name" fullWidth{...register('lastName')} />
                     </Grid>
-                    
-                    <Grid xs={12} sm={4}>
+
+                    <Grid item xs={12} sm={4}>
                         <FormControl fullWidth>
                             <InputLabel>Please select the month</InputLabel>
                             <Select     {...register('birthMonth')}>
@@ -81,6 +81,9 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                     </FormControl>
                     </Grid>
                 </Grid>
+
+                
+                <Grid container spacing={3} mt={3}>
                 <Grid item xs={12} sm={6}>
                     <FormControl component="fieldset">
                         <FormLabel component="legend">Gender</FormLabel>
@@ -102,13 +105,20 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                         </Select>
                     </FormControl>
                 </Grid>
+                </Grid>
+                
 
-                <Grid item xs={12} sm={4}>
+               
+               <Grid container spacing={2}  alignContent={"center"} mt={3}>
+               <Grid item xs={12} sm={4}>
                     <TextField label="Phone" {...register('phone')}/>
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <TextField label="Email" {...register('email')}/>
                 </Grid>
+                </Grid>
+                
+                
 
                 <Grid item xs={12}>
                     <Button type="submit" variant="contained" color="primary">
