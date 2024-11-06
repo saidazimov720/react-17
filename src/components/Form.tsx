@@ -95,7 +95,7 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <FormControl fullWidth>
-                        <InputLabel>of which country are you citizen?</InputLabel>
+                        <FormLabel component="legend">of which country are you citizen?</FormLabel>
                         <Select {...register('citizenship')}>
                             <MenuItem value="">Please select</MenuItem>
                             <MenuItem value="USA">USA</MenuItem>
@@ -107,10 +107,8 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                 </Grid>
                 </Grid>
                 
-
-               
                <Grid container spacing={2}  alignContent={"center"} mt={3}>
-               <Grid item xs={12} sm={4}>
+               <Grid item xs={12} sm={7}>
                     <TextField label="Phone" {...register('phone')}/>
                 </Grid>
                 <Grid item xs={12} sm={4}>
@@ -120,7 +118,7 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                 
                 
 
-                <Grid item xs={12}>
+                <Grid item xs={12} mt={2}>
                     <Button type="submit" variant="contained" color="primary">
                         Next
                     </Button>
