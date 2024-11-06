@@ -44,7 +44,7 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                     <Grid item xs={12} sm={4}>
                         <FormControl fullWidth>
                             <InputLabel>Please select the month</InputLabel>
-                            <Select     {...register('birthMonth')}>
+                            <Select  label="Please select the month"   {...register('birthMonth')}>
                                 <MenuItem value="">Please select the month</MenuItem>
                                 {Array.from({ length: 12 }, (_, i) => (
                                     <MenuItem key={i} value={i + 1}>
@@ -57,7 +57,7 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                     <Grid item xs={12} sm={4}>
                         <FormControl fullWidth>
                             <InputLabel>Please select a day</InputLabel>
-                            <Select {...register('birthDay')}>
+                            <Select label="Please select a day" {...register('birthDay')}>
                                 <MenuItem value="">Please select a day</MenuItem>
                                 {Array.from({length: 31}, (_, i) =>(
                                     <MenuItem key={i + 1} value={i + 1}>
@@ -70,7 +70,7 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                     <Grid item xs={12} sm={4}>
                     <FormControl fullWidth>
                         <InputLabel>Please select a year</InputLabel>
-                        <Select {...register('birthYear')}>
+                        <Select label="Please select a year" {...register('birthYear')}>
                             <MenuItem value="">Please select a year</MenuItem>
                             {Array.from({length: 100}, (_, i) =>(
                                 <MenuItem key={i} value={2023 - i}>
@@ -97,7 +97,7 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                     <FormControl fullWidth>
                         <FormLabel component="legend">of which country are you citizen?</FormLabel>
                         <Select {...register('citizenship')}>
-                            <MenuItem value="">Please select</MenuItem>
+                            <MenuItem value="">Japan</MenuItem>
                             <MenuItem value="USA">USA</MenuItem>
                             <MenuItem value="Canada">Canada</MenuItem>
                             <MenuItem value="Russia">Russia</MenuItem>
@@ -108,17 +108,40 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                 </Grid>
                 
                <Grid container spacing={2}  alignContent={"center"} mt={3}>
-               <Grid item xs={12} sm={7}>
-                    <TextField label="Phone" {...register('phone')}/>
+               <Grid item xs={12} sm={6.5}>
+                    <TextField sx={{width: '300px'}} label="Phone" {...register('phone')}/>
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                    <TextField label="Email" {...register('email')}/>
+                    <TextField sx={{width: '300px'}} label="Email" {...register('email')}/>
+                    <Typography variant="subtitle1">example@exmaple.com</Typography>
                 </Grid>
                 </Grid>
-                
-                
 
-                <Grid item xs={12} mt={2}>
+                <Grid container spacing={2} mt={3}>
+                    <Grid item xs={12}>
+                    <Typography variant="h5">Mailing Address</Typography>
+                    <TextField sx={{width: '700px'}} label="street" {...register('street')}/>
+                    <Typography variant="subtitle1" color="success">Street Adress</Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                    <TextField sx={{width: '700px'}} label="street" {...register('street')}/>
+                    <Typography variant="subtitle1">Street Adress Line 2</Typography>
+                    </Grid>
+                </Grid>
+
+                <Grid container spacing={2} mt={3}>
+                    <Grid item xs={12}>
+                        <TextField sx={{width: '250px'}} label="city" {...register('city')} />
+                        <Typography variant="subtitle1">City</Typography>
+                    </Grid>
+                    <Grid item xs={1}>
+                        <TextField  sx={{width: '250px'}} label="state/province" {...register('state/province')} />
+                        <Typography variant="subtitle1">State/Province</Typography>
+                    </Grid>
+                </Grid>
+
+
+                <Grid item xs={12} mt={2}> 
                     <Button type="submit" variant="contained" color="primary">
                         Next
                     </Button>
