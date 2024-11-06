@@ -14,7 +14,6 @@ import {
     FormControlLabel,
     Typography,
     FormLabel,
-    Grid2
 } from "@mui/material";
 
 interface AdmissionProps {
@@ -41,10 +40,10 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                     <Grid item xs={12} sm={4}>
                         <TextField label="Last name" fullWidth{...register('lastName')} />
                     </Grid>
-
+                    
                     <Grid xs={12} sm={4}>
                         <FormControl fullWidth>
-                            <InputLabel>Month</InputLabel>
+                            <InputLabel>Please select the month</InputLabel>
                             <Select     {...register('birthMonth')}>
                                 <MenuItem value="">Please select the month</MenuItem>
                                 {Array.from({ length: 12 }, (_, i) => (
@@ -57,7 +56,7 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                     </Grid>
                     <Grid item xs={12} sm={4}>
                         <FormControl fullWidth>
-                            <InputLabel>Day</InputLabel>
+                            <InputLabel>Please select a day</InputLabel>
                             <Select {...register('birthDay')}>
                                 <MenuItem value="">Please select a day</MenuItem>
                                 {Array.from({length: 31}, (_, i) =>(
@@ -68,8 +67,9 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                             </Select>
                         </FormControl>
                     </Grid>
+                    <Grid item xs={12} sm={4}>
                     <FormControl fullWidth>
-                        <InputLabel>Year</InputLabel>
+                        <InputLabel>Please select a year</InputLabel>
                         <Select {...register('birthYear')}>
                             <MenuItem value="">Please select a year</MenuItem>
                             {Array.from({length: 100}, (_, i) =>(
@@ -79,6 +79,7 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                             ))}
                         </Select>
                     </FormControl>
+                    </Grid>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <FormControl component="fieldset">
@@ -102,10 +103,10 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                     </FormControl>
                 </Grid>
 
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={4}>
                     <TextField label="Phone" {...register('phone')}/>
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={4}>
                     <TextField label="Email" {...register('email')}/>
                 </Grid>
 
