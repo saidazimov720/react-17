@@ -118,3 +118,5 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
         </Box>
     )
 }
+
+export default AdmissionForm;
