@@ -1,5 +1,6 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Control, Controller } from "react-hook-form";
+import { render } from '@testing-library/react';
 import {
     Box,
     Grid,
@@ -15,13 +16,16 @@ import {
     Typography,
     FormLabel,
 } from "@mui/material";
+import { error } from "console";
+
+// const {control} =useForm();
 
 interface AdmissionProps {
     onSubmit: (data: Record<string, any>) => void;
 }
 
 const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
-    const { handleSubmit, register } = useForm();
+    const { handleSubmit, register, formState:{errors}, control } = useForm();
 
     return (
         <Box sx={{ maxWidth: 700, margin: '0 auto', padding: '2rem' }}>
@@ -138,6 +142,19 @@ const AdmissionForm: React.FC<AdmissionProps> = ({ onSubmit }) => {
                         <TextField  sx={{width: '250px'}} label="state/province" {...register('state/province')} />
                         <Typography variant="subtitle1">State/Province</Typography>
                     </Grid>
+                </Grid>
+
+                <Grid container spacing={2}>
+                    <Controller 
+                    name="lastName"
+                    control={control}
+                    render={({field}) =>(
+                        <FormControl>
+                            <FormLabel>Last/Family name</FormLabel>
+                            <TextField variant="outlined" {...field} error={!!errors["lastName"]} />
+                        </FormControl>
+                    )} 
+                    />
                 </Grid>
 
 
